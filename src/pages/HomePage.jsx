@@ -4,6 +4,7 @@ import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../services/firebase";
 import { calculateDistance } from "../utils/calculateDistance";
+import BottomNav from "../components/BottomNav";
 
 const JUHU_DEMO_LOCATION = {
   latitude: 19.09845,
@@ -149,7 +150,7 @@ export default function HomePage() {
   }
 
   return (
-    <main className="home-page">
+    <main className="home-page page-with-nav">
       <header className="home-header">
         <div>
           <p className="welcome-text">Welcome back,</p>
@@ -252,6 +253,7 @@ export default function HomePage() {
     </article>
   ))}
 </section>
+<BottomNav />
     </main>
   );
 }
