@@ -150,110 +150,76 @@ export default function HomePage() {
   }
 
   return (
-    <main className="home-page page-with-nav">
-      <header className="home-header">
-        <div>
-          <p className="welcome-text">Welcome back,</p>
-          <h1>{userProfile?.name || "Coast Guardian"} 🌊</h1>
-        </div>
+   <main className="app-shell">
+  <header className="app-header">
+    <div className="header-brand">
+      <div className="small-brand-mark">◎</div>
+      <span>CoastLoop</span>
+    </div>
 
-        <div className="points-badge">
-          <span>EcoPoints</span>
-          <strong>{userProfile?.ecoPoints || 0}</strong>
-        </div>
-      </header>
+    <button className="header-icon-button" aria-label="Notifications">
+      ◌
+    </button>
+  </header>
 
-      <section className="location-card">
-        <h2>📍 Nearby CoastLoop bins</h2>
-        <p>{locationMessage}</p>
-      </section>
+  <section className="map-page-content">
+    <div className="map-toolbar">
+      <div className="search-box">
+        <span>⌕</span>
+        <input placeholder="Search collection points" />
+      </div>
 
-      <section className="map-placeholder">
-        <div className="map-water">
-          <span className="user-marker">● You</span>
+      <button className="filter-button">≡</button>
+    </div>
 
-          {nearbyBins.map((bin, index) => (
-            <span
-              className={`bin-marker marker-${index % 3}`}
-              key={bin.id}
-            >
-              {bin.status === "available" ? "🟢" : "🟡"} {bin.distance} m
-            </span>
-          ))}
-        </div>
-      </section>
+    <section className="map-placeholder professional-map">
+      <div className="map-water">
+        <div className="map-road road-one" />
+        <div className="map-road road-two" />
+        <span className="user-location-marker">●</span>
 
-      {nearestBin ? (
-        <section className="nearest-bin-card">
-          <div className="nearest-bin-heading">
-            <p>NEAREST VERIFIED BIN</p>
-            <span className={getStatusClass(nearestBin.status)}>
-              {getStatusLabel(nearestBin.status)}
-            </span>
+        {nearbyBins.map((bin, index) => (
+          <button
+            className={`map-bin-marker marker-${index % 3}`}
+            key={bin.id}
+            onClick={() => navigate(`/scan/${bin.id}`)}
+          >
+            <span>♻</span>
+          </button>
+        ))}
+      </div>
+
+      <button className="current-location-button">⌖</button>
+    </section>
+
+    {nearestBin && (
+      <section className="collection-point-card">
+        <div className="collection-point-topline">
+          <div>
+            <p className="eyebrow">NEAREST COLLECTION POINT</p>
+            <h2>{nearestBin.name}</h2>
           </div>
 
-          <h2>{nearestBin.name}</h2>
+          <span className={getStatusClass(nearestBin.status)}>
+            {getStatusLabel(nearestBin.status)}
+          </span>
+        </div>
 
-          <p>
-            {nearestBin.distance} m away · {nearestBin.fillLevel}% full
-          </p>
-
-          <div className="bin-action-buttons">
-  <button
-    className="primary-button"
-    onClick={() => openDirections(nearestBin)}
-  >
-    Navigate to Nearest Bin
-  </button>
-
-  <button
-    className="secondary-button scan-button"
-    onClick={() => navigate(`/scan/${nearestBin.id}`)}
-  >
-    Scan Bin QR to Earn Points
-  </button>
-</div>
-        </section>
-      ) : (
-        <section className="nearest-bin-card">
-          <h2>No bins within 500 m</h2>
-          <p>
-            Try a different location or use the Juhu pilot-zone demo location.
-          </p>
-        </section>
-      )}
-
-      <section className="bin-list">
-  <h2>Bins around you</h2>
-
-  {nearbyBins.map((bin) => (
-    <article className="bin-list-item" key={bin.id}>
-      <div>
-        <h3>{bin.name}</h3>
-        <p>
-          {bin.distance} m away · {bin.fillLevel}% full
+        <p className="collection-distance">
+          {nearestBin.distance} m away · {nearestBin.fillLevel}% full
         </p>
-      </div>
-
-      <div className="bin-list-actions">
-        <button
-          className="secondary-button"
-          onClick={() => openDirections(bin)}
-        >
-          Navigate
-        </button>
 
         <button
-          className="secondary-button scan-button"
-          onClick={() => navigate(`/scan/${bin.id}`)}
+          className="wide-action-button"
+          onClick={() => openDirections(nearestBin)}
         >
-          Scan QR
+          Get Directions
         </button>
-      </div>
-    </article>
-  ))}
-</section>
-<BottomNav />
-    </main>
+      </section>
+    )}
+  </section>
+
+  <BottomNav active="map" navigate={navigate} />
+</main>
   );
 }

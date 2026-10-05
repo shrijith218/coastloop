@@ -1,42 +1,27 @@
 import { NavLink } from "react-router-dom";
 
-const navigationItems = [
-  {
-    label: "Home",
-    path: "/home",
-    icon: "⌂",
-  },
-  {
-    label: "Rewards",
-    path: "/rewards",
-    icon: "🎁",
-  },
-  {
-    label: "Rank",
-    path: "/leaderboard",
-    icon: "🏆",
-  },
-  {
-    label: "Profile",
-    path: "/profile",
-    icon: "👤",
-  },
+const navItems = [
+  { id: "map", label: "Map", icon: "⌖", path: "/home" },
+  { id: "activity", label: "Activity", icon: "♧", path: "/activity" },
+  { id: "scan", label: "Scan", icon: "⌾", path: "/home" },
+  { id: "rewards", label: "Rewards", icon: "♢", path: "/rewards" },
+  { id: "profile", label: "Profile", icon: "♙", path: "/profile" },
 ];
 
-export default function BottomNav() {
+export default function BottomNav({ active, navigate }) {
   return (
-    <nav className="bottom-nav" aria-label="Main navigation">
-      {navigationItems.map((item) => (
-        <NavLink
-          key={item.path}
-          to={item.path}
-          className={({ isActive }) =>
-            `bottom-nav-item ${isActive ? "bottom-nav-active" : ""}`
-          }
+    <nav className="bottom-nav">
+      {navItems.map((item) => (
+        <button
+          key={item.id}
+          className={`bottom-nav-item ${
+            active === item.id ? "active" : ""
+          }`}
+          onClick={() => navigate(item.path)}
         >
           <span className="bottom-nav-icon">{item.icon}</span>
           <span>{item.label}</span>
-        </NavLink>
+        </button>
       ))}
     </nav>
   );

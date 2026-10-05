@@ -1,44 +1,25 @@
 :root {
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
-  color: #102a43;
-  background: #f4f7f8;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+
+  --navy: #073b4c;
+  --deep-ocean: #064b63;
+  --ocean: #087f9b;
+  --turquoise: #18b8bd;
+  --mint: #d9f6f0;
+  --ice: #f4fbfc;
+  --white: #ffffff;
+  --text: #12333d;
+  --muted: #6c858c;
+  --border: #dcebef;
+  --success: #21a179;
+  --warning: #efaa3c;
+  --danger: #d95d5d;
+
+  color: var(--text);
+  background: var(--ice);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-
-  --ink: #102a43;
-  --ink-soft: #486581;
-  --muted: #627d8a;
-
-  --brand: #0f766e;
-  --brand-hover: #115e59;
-  --brand-soft: #e7f3f1;
-  --brand-border: #bcded8;
-
-  --accent: #e7a23b;
-  --accent-soft: #fff4dc;
-
-  --page-bg: #f4f7f8;
-  --surface: #ffffff;
-  --surface-muted: #f8fafb;
-  --border: #d9e4e7;
-
-  --success: #138a72;
-  --success-soft: #def5ee;
-  --warning: #c9841d;
-  --warning-soft: #fff1cf;
-  --danger: #c2414b;
-  --danger-soft: #fde9eb;
-
-  --shadow-sm: 0 2px 8px rgba(16, 42, 67, 0.06);
-  --shadow-md: 0 12px 30px rgba(16, 42, 67, 0.1);
-  --shadow-lg: 0 20px 50px rgba(16, 42, 67, 0.14);
-
-  --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 22px;
-
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -1452,4 +1433,452 @@ small {
     scroll-behavior: auto !important;
     transition-duration: 1ms !important;
   }
+}
+.auth-page {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 24px;
+  background: var(--deep-ocean);
+}
+
+.auth-background {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(4, 48, 66, 0.35),
+      rgba(4, 48, 66, 0.82)
+    ),
+    url("/coast-background.jpg") center / cover;
+  transform: scale(1.03);
+}
+
+.auth-content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 390px);
+  color: white;
+}
+
+.brand-lockup {
+  margin-bottom: 44px;
+  text-align: center;
+}
+
+.brand-mark {
+  width: 62px;
+  height: 62px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 12px;
+  border: 3px solid var(--turquoise);
+  border-radius: 50%;
+  color: var(--turquoise);
+  font-size: 42px;
+  line-height: 1;
+}
+
+.brand-lockup h1 {
+  margin: 0;
+  color: white;
+  font-size: 27px;
+  letter-spacing: 0.14em;
+}
+
+.auth-welcome {
+  margin: 0 0 28px;
+  font-size: 17px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.auth-form {
+  display: grid;
+  gap: 9px;
+  padding: 22px;
+  border-radius: 18px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 20px 50px rgba(0, 30, 40, 0.28);
+}
+
+.auth-form label {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.auth-form input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 13px 14px;
+  color: var(--text);
+  background: white;
+  outline: none;
+}
+
+.auth-form input:focus {
+  border-color: var(--turquoise);
+  box-shadow: 0 0 0 3px rgba(24, 184, 189, 0.16);
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  padding-right: 42px;
+}
+
+.password-field span {
+  position: absolute;
+  top: 50%;
+  right: 13px;
+  color: var(--muted);
+  transform: translateY(-50%);
+}
+
+.forgot-link {
+  justify-self: start;
+  border: 0;
+  padding: 0;
+  color: var(--ocean);
+  background: transparent;
+  font-size: 12px;
+}
+
+.auth-submit {
+  border: 0;
+  border-radius: 9px;
+  margin-top: 8px;
+  padding: 13px;
+  color: white;
+  background: var(--ocean);
+  font-weight: 800;
+}
+
+.auth-submit:hover {
+  background: var(--deep-ocean);
+}
+
+.auth-register {
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  text-align: center;
+}
+
+.auth-register a {
+  color: white;
+  font-weight: 800;
+}
+.app-shell {
+  width: min(100%, 520px);
+  min-height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--ice);
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 12px;
+  background: white;
+}
+
+.header-brand,
+.header-icon-button {
+  display: flex;
+  align-items: center;
+}
+
+.header-brand {
+  gap: 9px;
+  color: var(--deep-ocean);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.small-brand-mark {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--turquoise);
+  border-radius: 50%;
+  color: var(--ocean);
+  font-size: 20px;
+}
+
+.header-icon-button {
+  width: 36px;
+  height: 36px;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  color: var(--ocean);
+  background: var(--mint);
+  font-size: 22px;
+}
+
+.map-page-content {
+  padding: 10px 16px 100px;
+}
+
+.map-toolbar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 8px;
+  margin-bottom: -8px;
+  transform: translateY(8px);
+}
+
+.search-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 13px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 5px 16px rgba(15, 75, 90, 0.1);
+}
+
+.search-box span {
+  color: var(--muted);
+  font-size: 20px;
+}
+
+.search-box input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  font-size: 13px;
+}
+
+.filter-button {
+  width: 42px;
+  border: 0;
+  border-radius: 50%;
+  color: white;
+  background: var(--ocean);
+  font-size: 20px;
+}
+
+.professional-map {
+  position: relative;
+  min-height: 440px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #a9dce4;
+}
+
+.map-water {
+  position: relative;
+  min-height: 440px;
+  overflow: hidden;
+  background:
+    linear-gradient(130deg, rgba(255,255,255,.4) 1px, transparent 1px),
+    linear-gradient(45deg, rgba(255,255,255,.25) 1px, transparent 1px),
+    #b8e5e8;
+  background-size: 42px 42px;
+}
+
+.map-water::after {
+  content: "";
+  position: absolute;
+  top: -10%;
+  right: -20%;
+  width: 48%;
+  height: 120%;
+  border-radius: 50%;
+  background: #8bcdd8;
+  transform: rotate(-15deg);
+}
+
+.map-road {
+  position: absolute;
+  z-index: 1;
+  width: 150%;
+  height: 18px;
+  border: 4px solid rgba(255, 255, 255, 0.85);
+  background: #d5e7df;
+  transform: rotate(-28deg);
+}
+
+.road-one {
+  top: 42%;
+  left: -25%;
+}
+
+.road-two {
+  top: 65%;
+  left: -20%;
+  transform: rotate(18deg);
+}
+
+.user-location-marker {
+  position: absolute;
+  z-index: 3;
+  top: 52%;
+  left: 46%;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border: 5px solid white;
+  border-radius: 50%;
+  color: #1e83ff;
+  background: #1e83ff;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+}
+
+.map-bin-marker {
+  position: absolute;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  border: 3px solid white;
+  border-radius: 50% 50% 50% 0;
+  color: white;
+  background: var(--ocean);
+  box-shadow: 0 5px 12px rgba(8, 90, 110, 0.24);
+  transform: rotate(-45deg);
+}
+
+.map-bin-marker span {
+  display: block;
+  font-size: 17px;
+  transform: rotate(45deg);
+}
+
+.map-bin-marker.marker-0 {
+  top: 23%;
+  left: 22%;
+}
+
+.map-bin-marker.marker-1 {
+  top: 35%;
+  right: 20%;
+  background: var(--success);
+}
+
+.map-bin-marker.marker-2 {
+  bottom: 22%;
+  left: 31%;
+  background: var(--warning);
+}
+
+.current-location-button {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 4;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  color: var(--ocean);
+  background: white;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.16);
+  font-size: 24px;
+}
+.collection-point-card {
+  position: relative;
+  z-index: 5;
+  margin-top: -2px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 10px 24px rgba(10, 73, 88, 0.1);
+}
+
+.collection-point-topline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.eyebrow {
+  margin: 0 0 7px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.collection-point-card h2 {
+  margin: 0;
+  color: var(--deep-ocean);
+  font-size: 19px;
+}
+
+.collection-distance {
+  margin: 9px 0 16px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.wide-action-button {
+  width: 100%;
+  border: 0;
+  border-radius: 9px;
+  padding: 12px;
+  color: white;
+  background: var(--ocean);
+  font-weight: 800;
+}
+
+.wide-action-button:hover {
+  background: var(--deep-ocean);
+}
+.bottom-nav {
+  position: fixed;
+  right: 50%;
+  bottom: 0;
+  z-index: 20;
+  width: min(100%, 520px);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 9px 8px calc(9px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 -5px 20px rgba(15, 75, 90, 0.08);
+  transform: translateX(50%);
+  backdrop-filter: blur(16px);
+}
+
+.bottom-nav-item {
+  display: grid;
+  place-items: center;
+  gap: 3px;
+  border: 0;
+  color: #8aa0a5;
+  background: transparent;
+  font-size: 10px;
+}
+
+.bottom-nav-icon {
+  font-size: 21px;
+  line-height: 1;
+}
+
+.bottom-nav-item.active {
+  color: var(--ocean);
+  font-weight: 800;
+}
+
+.bottom-nav-item.active .bottom-nav-icon {
+  color: var(--ocean);
 }

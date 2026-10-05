@@ -64,88 +64,63 @@ export default function RewardsPage() {
   const nextReward = mockRewards.find((reward) => reward.points > points);
 
   return (
-    <main className="app-page page-with-nav">
-      <header className="page-title-header">
-        <div>
-          <p className="eyebrow">YOUR ECO WALLET</p>
-          <h1>Rewards</h1>
-        </div>
+    <main className="app-shell">
+  <header className="simple-page-header">
+    <h1>Your Impact</h1>
+    <button className="header-icon-button">⋮</button>
+  </header>
 
-        <div className="points-badge">
-          <span>EcoPoints</span>
-          <strong>{points}</strong>
-        </div>
-      </header>
+  <section className="impact-card">
+    <div>
+      <p>Total impact</p>
+      <strong>{userProfile?.ecoPoints || 0}</strong>
+      <span>Points</span>
+    </div>
 
-      <section className="reward-wallet-card">
-        <div className="wallet-wave">🌊</div>
-        <div>
-          <p>Your current balance</p>
-          <h2>{points} EcoPoints</h2>
+    <div className="level-badge">
+      <span>Level</span>
+      <strong>Silver</strong>
+      <span>◈</span>
+    </div>
+  </section>
 
-          {nextReward ? (
-            <span>
-              {nextReward.points - points} points until{" "}
-              <strong>{nextReward.title}</strong>
-            </span>
-          ) : (
-            <span>You can unlock every current CoastLoop reward.</span>
-          )}
-        </div>
-      </section>
+  <h2 className="section-title">This Month</h2>
 
-      {message && <p className="form-message">{message}</p>}
+  <section className="impact-stat-grid">
+    <article>
+      <span>♙</span>
+      <strong>12</strong>
+      <small>Cleanups</small>
+    </article>
 
-      <section className="rewards-grid">
-        {mockRewards.map((reward) => {
-          const canRedeem = points >= reward.points;
-          const progress = Math.min((points / reward.points) * 100, 100);
+    <article>
+      <span>♧</span>
+      <strong>24.3 kg</strong>
+      <small>Plastic Prevented</small>
+    </article>
 
-          return (
-            <article className="reward-card" key={reward.id}>
-              <div className="reward-card-top">
-                <span className="reward-icon">{reward.icon}</span>
-                <span
-                  className={`reward-state ${
-                    canRedeem ? "reward-state-ready" : ""
-                  }`}
-                >
-                  {canRedeem ? "Available" : `${reward.points} pts`}
-                </span>
-              </div>
+    <article>
+      <span>⌾</span>
+      <strong>5</strong>
+      <small>Sites Visited</small>
+    </article>
+  </section>
 
-              <h2>{reward.title}</h2>
-              <p>{reward.description}</p>
+  <section className="badge-section">
+    <div className="section-heading">
+      <h2>Recent Badges</h2>
+      <button>View all</button>
+    </div>
 
-              <div className="reward-progress-track">
-                <span style={{ width: `${progress}%` }} />
-              </div>
+    <div className="badge-row">
+      <div className="badge-circle">♻</div>
+      <div className="badge-circle">◈</div>
+      <div className="badge-circle">QR</div>
+      <div className="badge-circle">★</div>
+    </div>
+  </section>
 
-              <div className="reward-card-footer">
-                <strong>{reward.points} EcoPoints</strong>
-                <button
-                  className={canRedeem ? "primary-button compact-button" : "secondary-button"}
-                  onClick={() => handleRedeem(reward)}
-                >
-                  {canRedeem ? "Redeem" : "View Goal"}
-                </button>
-              </div>
-            </article>
-          );
-        })}
-      </section>
-
-      <section className="reward-note">
-        <h2>How do rewards work?</h2>
-        <p>
-          Earn EcoPoints through verified bin disposal, cleanup participation,
-          and validated community reports. Demo rewards are shown for the
-          hackathon; secure coupons will be issued through the partner system
-          in deployment.
-        </p>
-      </section>
-
-      <BottomNav />
-    </main>
+  <BottomNav active="rewards" navigate={navigate} />
+</main>
   );
 }

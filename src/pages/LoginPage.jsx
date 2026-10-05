@@ -49,55 +49,66 @@ export default function LoginPage() {
 
   return (
     <main className="auth-page">
-      <section className="auth-card">
-        <div className="logo">🌊</div>
+      <div className="auth-background" />
 
-        <h1>CoastLoop</h1>
+      <section className="auth-content">
+        <div className="brand-lockup">
+          <div className="brand-mark">◎</div>
+          <h1>COASTLOOP</h1>
+        </div>
 
-        <p className="tagline">
-          Dispose Right. Protect the Coast.
+        <p className="auth-welcome">
+          Welcome back
+          <br />
+          Log in to continue your impact
         </p>
 
-        <form onSubmit={handleLogin}>
-          <label htmlFor="email">Email address</label>
+        <form className="auth-form" onSubmit={handleLogin}>
+          <label htmlFor="email">Email</label>
+
           <input
             id="email"
             type="email"
-            placeholder="you@example.com"
+            placeholder="you@email.com"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             autoComplete="email"
           />
 
           <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            autoComplete="current-password"
-          />
+
+          <div className="password-field">
+            <input
+              id="password"
+              type="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              autoComplete="current-password"
+            />
+
+            <span>◉</span>
+          </div>
 
           {error && <p className="form-error">{error}</p>}
 
+          <button type="button" className="forgot-link">
+            Forgot password?
+          </button>
+
           <button
             type="submit"
-            className="primary-button"
+            className="auth-submit"
             disabled={isLoading}
           >
             {isLoading ? "Logging in..." : "Log In"}
           </button>
         </form>
 
-        <p className="auth-footer">
-          New to CoastLoop? <Link to="/register">Create an account</Link>
+        <p className="auth-register">
+          Don’t have an account?{" "}
+          <Link to="/register">Sign up</Link>
         </p>
-
-        <small>
-          Your location is used only to find bins and validate responsible
-          disposal rewards.
-        </small>
       </section>
     </main>
   );
