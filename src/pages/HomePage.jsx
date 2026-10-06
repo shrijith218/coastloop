@@ -152,16 +152,43 @@ export default function HomePage() {
 
   return (
    <main className="app-shell">
-  <header className="app-header">
-    <div className="header-brand">
-      <div className="small-brand-mark">◎</div>
-      <span>CoastLoop</span>
-    </div>
+<header className="home-header app-home-header">
+  <button
+    type="button"
+    className="home-profile-button"
+    onClick={() => navigate("/profile")}
+    aria-label="Open profile"
+  >
+    <span className="home-logo-mark" aria-hidden="true">
+      ♻
+    </span>
 
-    <button className="header-icon-button" aria-label="Notifications">
-      ◌
-    </button>
-  </header>
+    <span className="home-user-copy">
+      <span className="home-greeting">Welcome back</span>
+
+      <strong>
+        {userProfile?.name || "Coast Guardian"}
+      </strong>
+    </span>
+  </button>
+
+  <button
+    type="button"
+    className="home-points-card"
+    onClick={() => navigate("/rewards")}
+    aria-label="Open rewards"
+  >
+    <span className="points-card-label">EcoPoints</span>
+
+    <span className="points-card-value">
+      {userProfile?.ecoPoints || 0}
+    </span>
+
+    <span className="points-card-arrow" aria-hidden="true">
+      →
+    </span>
+  </button>
+</header>
 
   <section className="map-page-content">
     <div className="map-toolbar">
