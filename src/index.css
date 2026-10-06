@@ -1562,3 +1562,146 @@ select:focus {
     transition-duration: 1ms !important;
   }
 }
+/* ========================================
+   PROFESSIONAL HOME HEADER
+======================================== */
+
+.app-home-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.home-profile-button {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  padding: 0;
+  color: var(--text);
+  background: transparent;
+  text-align: left;
+}
+
+.home-logo-mark {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  place-items: center;
+  border: 2px solid rgba(24, 184, 189, 0.45);
+  border-radius: 15px;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--deep-ocean), var(--ocean));
+  box-shadow: 0 7px 15px rgba(6, 75, 99, 0.2);
+  font-size: 22px;
+}
+
+.home-user-copy {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.home-greeting {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-user-copy strong {
+  overflow: hidden;
+  color: var(--deep-ocean);
+  font-size: clamp(16px, 4vw, 20px);
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-points-card {
+  position: relative;
+  display: grid;
+  min-width: 104px;
+  justify-items: start;
+  gap: 3px;
+  border: 1px solid #a9e1df;
+  border-radius: 16px;
+  padding: 10px 28px 10px 12px;
+  color: var(--deep-ocean);
+  background: linear-gradient(135deg, #e4fbfa, #d4f4f2);
+  box-shadow: 0 6px 16px rgba(7, 127, 155, 0.1);
+  text-align: left;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.home-points-card:hover {
+  background: #c9efed;
+  box-shadow: 0 9px 18px rgba(7, 127, 155, 0.16);
+  transform: translateY(-1px);
+}
+
+.points-card-label {
+  color: #39727a;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.points-card-value {
+  color: var(--deep-ocean);
+  font-size: 21px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.points-card-arrow {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  color: var(--ocean);
+  font-size: 20px;
+  font-weight: 800;
+  transform: translateY(-50%);
+}
+
+.home-profile-button:hover .home-logo-mark {
+  background: linear-gradient(135deg, var(--ocean), var(--turquoise));
+}
+
+.home-profile-button:focus-visible,
+.home-points-card:focus-visible {
+  outline: 3px solid rgba(24, 184, 189, 0.45);
+  outline-offset: 3px;
+}
+
+@media (max-width: 390px) {
+  .home-logo-mark {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+    border-radius: 13px;
+    font-size: 20px;
+  }
+
+  .home-points-card {
+    min-width: 88px;
+    padding: 9px 24px 9px 10px;
+  }
+
+  .points-card-value {
+    font-size: 19px;
+  }
+
+  .home-user-copy strong {
+    font-size: 16px;
+  }
+}
