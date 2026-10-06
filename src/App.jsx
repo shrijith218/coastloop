@@ -6,7 +6,7 @@ import ScanPage from "./pages/ScanPage";
 import VerificationPage from "./pages/VerificationPage";
 import SuccessPage from "./pages/SuccessPage";
 import RewardsPage from "./pages/RewardsPage";
-import LeaderboardPage from "./pages/LeaderboardPage";
+import ActivityPage from "./pages/ActivityPage";
 import ProfilePage from "./pages/ProfilePage";
 
 export default function App() {
@@ -18,13 +18,15 @@ export default function App() {
         <Route path="/register" element={<RegisterPage />} />
 
         <Route path="/home" element={<HomePage />} />
-        <Route path="/rewards" element={<RewardsPage />} />
-        <Route path="/leaderboard" element={<LeaderboardPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-
         <Route path="/scan/:binId" element={<ScanPage />} />
         <Route path="/verify/:binId" element={<VerificationPage />} />
         <Route path="/success" element={<SuccessPage />} />
+
+        <Route path="/activity" element={<ActivityPage />} />
+        <Route path="/rewards" element={<RewardsPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+
+        <Route path="*" element={<Navigate to="/home" replace />} />
       </Routes>
     </BrowserRouter>
   );

@@ -4,6 +4,7 @@ import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../services/firebase";
 import { calculateDistance } from "../utils/calculateDistance";
+import CollectionMap from "../components/CollectionMap";
 import BottomNav from "../components/BottomNav";
 
 const JUHU_DEMO_LOCATION = {
@@ -172,25 +173,11 @@ export default function HomePage() {
       <button className="filter-button">≡</button>
     </div>
 
-    <section className="map-placeholder professional-map">
-      <div className="map-water">
-        <div className="map-road road-one" />
-        <div className="map-road road-two" />
-        <span className="user-location-marker">●</span>
-
-        {nearbyBins.map((bin, index) => (
-          <button
-            className={`map-bin-marker marker-${index % 3}`}
-            key={bin.id}
-            onClick={() => navigate(`/scan/${bin.id}`)}
-          >
-            <span>♻</span>
-          </button>
-        ))}
-      </div>
-
-      <button className="current-location-button">⌖</button>
-    </section>
+   <CollectionMap
+  userLocation={userLocation}
+  bins={nearbyBins}
+  onBinClick={(bin) => navigate(`/scan/${bin.id}`)}
+/>
 
     {nearestBin && (
       <section className="collection-point-card">
@@ -219,7 +206,7 @@ export default function HomePage() {
     )}
   </section>
 
-  <BottomNav active="map" navigate={navigate} />
+  <BottomNav active="map" scanBinId={nearestBin?.id} />
 </main>
   );
 }

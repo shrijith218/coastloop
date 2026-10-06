@@ -1882,3 +1882,136 @@ small {
 .bottom-nav-item.active .bottom-nav-icon {
   color: var(--ocean);
 }
+.app-shell {
+  width: min(100%, 520px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-bottom: 92px;
+  background: var(--ice, #f4fbfc);
+}
+
+.bottom-nav {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  z-index: 1000;
+
+  width: min(100%, 520px);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+
+  min-height: 72px;
+  padding: 8px 6px calc(8px + env(safe-area-inset-bottom));
+
+  border-top: 1px solid #dcebef;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 -8px 24px rgba(7, 59, 76, 0.1);
+
+  transform: translateX(-50%);
+  backdrop-filter: blur(14px);
+}
+
+.bottom-nav-item {
+  display: flex;
+  min-width: 0;
+  min-height: 54px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+
+  border: 0;
+  border-radius: 12px;
+  padding: 5px 2px;
+
+  color: #7c969e;
+  background: transparent;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.bottom-nav-icon {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  font-size: 21px;
+  line-height: 1;
+}
+
+.bottom-nav-label {
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bottom-nav-item-active {
+  color: #087f9b;
+  font-weight: 800;
+  background: #e1f7f7;
+}
+
+@media (min-width: 521px) {
+  .bottom-nav {
+    border-right: 1px solid #dcebef;
+    border-left: 1px solid #dcebef;
+    border-radius: 18px 18px 0 0;
+  }
+}
+.leaflet-map-wrapper {
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  border: 1px solid #b9dfe5;
+  border-radius: 20px;
+  background: #dceff2;
+  box-shadow: 0 10px 24px rgba(7, 59, 76, 0.1);
+}
+
+.coastloop-map {
+  width: 100%;
+  height: 100%;
+}
+
+.leaflet-control-zoom a {
+  color: #064b63 !important;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 14px;
+  box-shadow: 0 10px 26px rgba(7, 59, 76, 0.18);
+}
+
+.leaflet-popup-content {
+  min-width: 185px;
+  margin: 14px;
+}
+
+.bin-map-popup {
+  color: #12333d;
+}
+
+.bin-map-popup p {
+  margin: 7px 0 11px;
+  color: #6c858c;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.map-popup-button {
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  padding: 9px 10px;
+  color: white;
+  background: #087f9b;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.map-popup-button:hover {
+  background: #064b63;
+}
