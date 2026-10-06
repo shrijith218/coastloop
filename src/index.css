@@ -1705,3 +1705,98 @@ select:focus {
     font-size: 16px;
   }
 }
+/* ========================================
+   HOME MAP SEARCH BAR
+======================================== */
+
+.map-toolbar {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 14px;
+}
+
+.search-box {
+  height: 46px;
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 13px;
+
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--white);
+  box-shadow: 0 6px 16px rgba(7, 59, 76, 0.1);
+}
+
+.search-box > span {
+  display: grid;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  place-items: center;
+
+  color: var(--ocean);
+  font-size: 20px;
+  line-height: 1;
+}
+
+.search-box input {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  flex: 1;
+
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+
+  color: var(--text);
+  background: transparent;
+  box-shadow: none;
+  font-size: 13px;
+  outline: none;
+}
+
+.search-box input::placeholder {
+  color: #8ba1a7;
+  opacity: 1;
+}
+
+.search-box:focus-within {
+  border-color: var(--turquoise);
+  box-shadow: 0 0 0 3px rgba(24, 184, 189, 0.15);
+}
+
+.search-box input:focus {
+  border: 0;
+  box-shadow: none;
+}
+
+.filter-button {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+
+  display: grid;
+  place-items: center;
+
+  border: 0;
+  border-radius: 14px;
+  padding: 0;
+
+  color: var(--white);
+  background: var(--ocean);
+  box-shadow: 0 6px 16px rgba(7, 127, 155, 0.22);
+  font-size: 20px;
+  line-height: 1;
+}
+
+.filter-button:hover {
+  background: var(--deep-ocean);
+}
