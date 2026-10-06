@@ -1,36 +1,11 @@
 import { useNavigate } from "react-router-dom";
 
 const navigationItems = [
-  {
-    id: "map",
-    label: "Map",
-    icon: "⌖",
-    path: "/home",
-  },
-  {
-    id: "activity",
-    label: "Activity",
-    icon: "◷",
-    path: "/activity",
-  },
-  {
-    id: "scan",
-    label: "Scan",
-    icon: "⌾",
-    path: "/home",
-  },
-  {
-    id: "rewards",
-    label: "Rewards",
-    icon: "★",
-    path: "/rewards",
-  },
-  {
-    id: "profile",
-    label: "Profile",
-    icon: "♙",
-    path: "/profile",
-  },
+  { id: "map", label: "Map", icon: "⌖", path: "/home" },
+  { id: "activity", label: "Activity", icon: "◷", path: "/activity" },
+  { id: "scan", label: "Scan", icon: "⌾", path: "/home" },
+  { id: "rewards", label: "Rewards", icon: "★", path: "/rewards" },
+  { id: "profile", label: "Profile", icon: "♙", path: "/profile" },
 ];
 
 export default function BottomNav({ active, scanBinId }) {
@@ -43,6 +18,7 @@ export default function BottomNav({ active, scanBinId }) {
       } else {
         alert("Please select a collection point before scanning.");
       }
+
       return;
     }
 
@@ -60,10 +36,7 @@ export default function BottomNav({ active, scanBinId }) {
           }`}
           onClick={() => handleNavigation(item)}
         >
-          <span className="bottom-nav-icon" aria-hidden="true">
-            {item.icon}
-          </span>
-
+          <span className="bottom-nav-icon">{item.icon}</span>
           <span className="bottom-nav-label">{item.label}</span>
         </button>
       ))}
